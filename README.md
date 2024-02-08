@@ -21,22 +21,22 @@ This project demonstrates how to integrate a Flask application with the DeSo (De
 
 1. Clone the repository:
 
-   ```bash
+  
    git clone https://github.com/<your-github-username>/<your-repo-name>.git
    cd <your-repo-name>
 
 Create a virtual environment and activate it:
-    ```bash
-  python -m venv venv
-  source venv/bin/activate  # On Windows use `venv\Scripts\activate`>
+
+     python -m venv venv
+     source venv/bin/activate  # On Windows use `venv\Scripts\activate`>
 
 2.Install the dependencies:
-     ```bash
+
      pip install -r requirements.txt
 
 
 3.Run the Flask application locally:
-     ```bash
+
     flask run
 
 Your app should now be running on http://localhost:5000.
@@ -48,26 +48,30 @@ Deploy this application to Heroku with a single click:
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/yourusername/your-repo-name)
 
 
-Manual Deployment to Heroku
+##  Manual Deployment to Heroku
 If you prefer, you can also manually deploy the app using the Heroku CLI:
 
 1.Log in to Heroku and create a new app:
-  heroku login
-  heroku create <your-heroku-app-name>
-2.Push your code to Heroku:
-  git push heroku main
-3.Open your application:
-  heroku open
 
-###Contributing
+         heroku login
+         heroku create <your-heroku-app-name>
+2.Push your code to Heroku:
+
+        git push heroku main
+        
+3.Open your application:
+
+        heroku open
+
+## Contributing
 
 We welcome contributions to this project! Please see CONTRIBUTING.md for more details on how to contribute.
 
-###License
+## License
 
 This project is open source under the terms of the MIT License.
 
-###Acknowledgments
+## Acknowledgments
 
 DeSo Protocol for providing a decentralized social network framework.
 IPFS for decentralized storage solutions.
