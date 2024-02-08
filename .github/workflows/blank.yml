@@ -1,0 +1,39 @@
+name: Deploy to Heroku
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build-and-deploy"
+  build-and-deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Sets up a specific version of Python
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      # Installs Python dependencies from requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Deploys the application to Heroku
+      - name: DeSo_Flask
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is a community action for Heroku deployment
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }} # Set this in your GitHub repo's secrets
+          heroku_app_name: "${{ secrets.HEROKU_APP_NAME }}" # Set this in your GitHub repo's secrets
+          heroku_email: ${{ secrets.HEROKU_EMAIL }} # Set this in your GitHub repo's secrets
